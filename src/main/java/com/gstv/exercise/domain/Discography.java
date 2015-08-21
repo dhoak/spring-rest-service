@@ -5,12 +5,12 @@ import java.util.List;
 /**
  * Created by davidhoak on 8/20/15.
  */
-public class DiscographyResponse extends BaseResponse {
+public class Discography {
 
     private Artist artist;
     private List<Album> albums;
 
-    public DiscographyResponse() {
+    public Discography() {
 
     }
 

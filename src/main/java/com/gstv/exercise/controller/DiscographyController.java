@@ -1,7 +1,7 @@
 package com.gstv.exercise.controller;
 
 import com.gstv.exercise.domain.BaseResponse;
-import com.gstv.exercise.domain.ErrorResponse;
+import com.gstv.exercise.domain.Error;
 import com.gstv.exercise.service.AlbumService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,14 +31,15 @@ public class DiscographyController {
     @RequestMapping("/{artist}/albums/last10")
     public BaseResponse getArtistLast10Albums(@PathVariable(value="artist") String artist)
     {
-        BaseResponse response;
+        BaseResponse response = new BaseResponse();
         try{
-            response = albumService.getLast10AlbumsByArtist(artist);
+            response.setData(albumService.getLast10AlbumsByArtist(artist));
         }
         catch (Exception e) {
             log.error(e.getMessage());
             e.printStackTrace();
-            response = new ErrorResponse(e.getMessage());
+            response.setStatus("error");
+            response.setData(new Error(e.getMessage()));
         }
 
         return response;

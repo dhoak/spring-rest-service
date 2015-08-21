@@ -31,10 +31,10 @@ public class AlbumServiceSpotifyImpl implements AlbumService {
      * @return
      * @throws ArtistException
      */
-    public DiscographyResponse getLast10AlbumsByArtist(String artistName) throws ArtistException
+    public Discography getLast10AlbumsByArtist(String artistName) throws ArtistException
     {
         log.debug("Getting the last 10 albums for artist: " + artistName);
-        DiscographyResponse discography = new DiscographyResponse();
+        Discography discography = new Discography();
         Artist artist = getArtist(artistName);
         discography.setArtist(artist);
 
@@ -69,6 +69,7 @@ public class AlbumServiceSpotifyImpl implements AlbumService {
 
         if(artist == null)
         {
+            log.error("Artist is null");
             throw new ArtistException(Constants.ARTIST_ERROR_NOT_FOUND);
         }
 

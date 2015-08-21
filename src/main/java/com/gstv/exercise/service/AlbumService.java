@@ -1,6 +1,6 @@
 package com.gstv.exercise.service;
 
-import com.gstv.exercise.domain.DiscographyResponse;
+import com.gstv.exercise.domain.Discography;
 import com.gstv.exercise.exception.ArtistException;
 
 /**
@@ -8,6 +8,6 @@ import com.gstv.exercise.exception.ArtistException;
  */
 public interface AlbumService {
 
-    DiscographyResponse getLast10AlbumsByArtist(String artistName) throws ArtistException;
+    Discography getLast10AlbumsByArtist(String artistName) throws ArtistException;
 
 }
