@@ -86,7 +86,7 @@ public class AlbumServiceSpotifyImpl implements AlbumService {
 
         List<Album> albums = new ArrayList<Album>();
         RestTemplate restTemplate = new RestTemplate();
-        AlbumSearch search = restTemplate.getForObject(Constants.SPOTIFY_BASE_URL + "/artists/"+ artist.getId() +"/albums??album_type=album&limit=10&market=US", AlbumSearch.class);
+        AlbumSearch search = restTemplate.getForObject(Constants.SPOTIFY_BASE_URL + "/artists/"+ artist.getId() +"/albums?album_type=album&market=US", AlbumSearch.class);
 
         for (Item item : search.getItems())
         {
